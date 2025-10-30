@@ -1,0 +1,67 @@
+/* Centers the card in the page */
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: #f7f8fc;
+  padding: 20px;
+}
+
+/* Card wrapper box */
+.card {
+  width: 100%;
+  max-width: 450px;
+  background: #ffffff;
+  padding: 26px 28px;
+  border-radius: 16px;
+  box-shadow: 0 6px 24px rgba(0,0,0,0.06);
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  transition: transform 0.25s ease;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+}
+
+/* Input field styling */
+.inputField {
+  width: 93%;
+  padding: 14px;
+  border-radius: 10px;
+  border: 1px solid #dce1e9;
+  font-size: 16px;
+  outline: none;
+  transition: border 0.25s ease;
+  background: #fafbff;
+}
+
+.inputField:focus {
+  border-color: #8c9eff; 
+  background: #ffffff;
+}
+
+/* Button styling */
+.button {
+  width: 100%;
+  padding: 14px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #9f8bff, #7a5af8 60%, #5b3fd9);
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 500;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.button:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
+
+.button:active {
+  transform: scale(0.98);
+}
