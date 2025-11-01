@@ -111,6 +111,7 @@ https://drive.google.com/file/d/1Wzvo21dkZNOS3XCrokhgNXmzW6kMDiCR/view?usp=shari
 ## Notes
 
 - In the `.env` file value of `REACT_APP_FIGMA_TOKEN` should be replaced with your Figma Access Token
+- Generate an access token by following these steps :  https://help.figma.com/hc/en-us/articles/8085703771159-Manage-personal-access-tokens
 
 ---
 
