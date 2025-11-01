@@ -13,6 +13,8 @@ Paste a Figma design link → click **Download Files** → get clean HTML & CSS 
 - Generates corresponding CSS 
 - Scales the exported layout responsively in preview
 - Downloads both files on single click
+- Custom file names
+- Downloads multiple files if there are multiple frames
 
 ---
 
@@ -83,6 +85,17 @@ src/
 ```
 
 ---
+## Test Coverage
+
+The project includes unit tests for both major components (`Input` and `DownloadFiles`) and achieves **100% code coverage** across statements, branches, functions, and lines.
+
+To run the tests with coverage:
+``` bash
+npm test -- --coverage
+
+```
+
+---
 
 ## Usage
 
@@ -103,14 +116,15 @@ https://drive.google.com/file/d/1Wzvo21dkZNOS3XCrokhgNXmzW6kMDiCR/view?usp=shari
 
 ## Limitations
 
-- The converter does not identify form controls (checkboxes, radios, dropdowns, input fields). These are exported as regular elements, not interactive HTML inputs.
-- The converter does not identify form controls (checkboxes, radios, dropdowns, input fields). These are exported as regular elements, not interactive HTML inputs.
+- **Form Controls can't be recognized: **The converter currently exports checkboxes, radio buttons, dropdowns, and input fields as static elements. Since the Figma API does not expose their functional metadata, they can’t be converted into interactive HTML inputs without additional logic or JavaScript parsing.
+- **Small icons / images can't be recognised effectively: **The converter currently exports checkboxes, radio buttons, dropdowns, and input fields as static elements. Since the Figma API does not expose their functional metadata, they can’t be converted into interactive HTML inputs without additional logic or JavaScript parsing.
 
 ---
 
 ## Notes
 
 - In the `.env` file value of `REACT_APP_FIGMA_TOKEN` should be replaced with your Figma Access Token
+- Generate an access token by following these steps :  https://help.figma.com/hc/en-us/articles/8085703771159-Manage-personal-access-tokens
 
 ---
 
