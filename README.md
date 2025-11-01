@@ -116,8 +116,8 @@ https://drive.google.com/file/d/1Wzvo21dkZNOS3XCrokhgNXmzW6kMDiCR/view?usp=shari
 
 ## Limitations
 
-- **Form Controls can't be recognized:** The converter currently exports checkboxes, radio buttons, dropdowns, and input fields as static elements. Since the Figma API does not expose their functional metadata, they can’t be converted into interactive HTML inputs without additional logic or JavaScript parsing.
-- **Small icons / images can't be recognised effectively:** Very small icons or nested vector images may be missed or appear as basic shapes. This happens because their dimensions fall below the detection threshold used when identifying visual elements for export.
+- **Form Controls can't be recognized:** Figma’s API provides only visual details such as shapes, colors, and text but does not specify what those shapes represent. This makes it impossible to know whether a rectangle is a text box, a dropdown, or just a decorative element. A possible workaround is to look for hints like layer names (for example, “input” or “checkbox”) or to detect patterns such as small boxes next to text that might indicate form fields. However, this approach is unreliable because designers often name and structure layers differently, and similar shapes can mean completely different things. To detect these elements accurately, we would need consistent naming across designs or advanced recognition methods that analyze visual patterns more intelligently.
+- **Small icons / images can't be recognised effectively:** This issue happens because Figma often stores small icons as vector shapes or inside nested components instead of regular images. A possible workaround is to extend the image detection logic to include smaller bounding boxes and check inside nested frames. However, this still may not detect everything, since some icons are made up of vector paths and not actual images.
 ---
 
 ## Notes
