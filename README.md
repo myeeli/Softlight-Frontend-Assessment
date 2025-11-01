@@ -50,19 +50,21 @@ Then open:
 ```
 http://localhost:3000
 ```
-
 ---
 
 ## Running Tests
-
 This project includes Jest-based unit tests for both major parts of the app:
 
-- `Input.test.jsx` → tests the main input screen, URL validation, and file generation logic.
-- `DownloadFiles.test.jsx` → tests the HTML/CSS generator functions using sample Figma-like data.
+- **Input.test.jsx** → tests the main input screen, URL validation, and file generation logic.
+- **DownloadFiles.test.jsx** → tests the HTML/CSS generator functions using sample Figma-like data.
+
+---
 
 ### Run all tests
-```bash
+``` bash
 npm test
+
+```
 
 ---
 
