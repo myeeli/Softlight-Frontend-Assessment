@@ -53,16 +53,31 @@ http://localhost:3000
 
 ---
 
+## Running Tests
+
+This project includes Jest-based unit tests for both major parts of the app:
+
+- `Input.test.jsx` → tests the main input screen, URL validation, and file generation logic.
+- `DownloadFiles.test.jsx` → tests the HTML/CSS generator functions using sample Figma-like data.
+
+### Run all tests
+```bash
+npm test
+
+---
+
 ## Project Structure
 
 ```
 src/
   Components/
     Input/
-      Input.jsx            # UI for Initial Screen
-      Input.module.css     # Styling for the Initial Screen
+      Input.jsx               # UI for Initial Screen
+      Input.module.css        # Styling for the Initial Screen
+      Input.test.jsx          # Unit test case
     Output/
-      DownloadFiles.jsx    # Functions to generate HTML & CSS
+      DownloadFiles.jsx       # Functions to generate HTML & CSS
+      DownloadFiles.test.jsx  # Unit test case
 ```
 
 ---
