@@ -117,8 +117,7 @@ https://drive.google.com/file/d/1Wzvo21dkZNOS3XCrokhgNXmzW6kMDiCR/view?usp=shari
 ## Limitations
 
 - **Form Controls can't be recognized:** The converter currently exports checkboxes, radio buttons, dropdowns, and input fields as static elements. Since the Figma API does not expose their functional metadata, they can’t be converted into interactive HTML inputs without additional logic or JavaScript parsing.
-- **Small icons / images can't be recognised effectively:** The converter currently exports checkboxes, radio buttons, dropdowns, and input fields as static elements. Since the Figma API does not expose their functional metadata, they can’t be converted into interactive HTML inputs without additional logic or JavaScript parsing.
-
+- **Small icons / images can't be recognised effectively:** Very small icons or nested vector images may be missed or appear as basic shapes. This happens because their dimensions fall below the detection threshold used when identifying visual elements for export.
 ---
 
 ## Notes
