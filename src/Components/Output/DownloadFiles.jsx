@@ -50,7 +50,7 @@ function escapeHtml(s) {
 }
 
 // Generates the HTML structure
-export function generateHtmlFromFrame(frameNode, imagesMap = {}) {
+export function generateHtmlFromFrame(frameNode, imagesMap = {}, cssFileName = "styles.css") {
   const rootBox = frameNode.absoluteBoundingBox || { width: 390, height: 844 };
   const W = Math.round(rootBox.width);
   const H = Math.round(rootBox.height);
@@ -67,7 +67,7 @@ export function generateHtmlFromFrame(frameNode, imagesMap = {}) {
     }
 
     // For shapes or small icons, use an <img> tag
-    const isVectorLike = ["ELLIPSE","VECTOR","LINE","STAR","POLYGON","BOOLEAN_OPERATION","REGULAR_POLYGON","ARROW"].includes(node.type);
+    const isVectorLike = ["ELLIPSE", "VECTOR", "LINE", "STAR", "POLYGON", "BOOLEAN_OPERATION", "REGULAR_POLYGON", "ARROW"].includes(node.type);
     if (modifiedUrl && (isVectorLike || (!node.children || node.children.length === 0))) {
       return `<img class="${cls}" alt="" src="${modifiedUrl}" />`;
     }
@@ -89,7 +89,7 @@ export function generateHtmlFromFrame(frameNode, imagesMap = {}) {
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <title>${escapeHtml(frameNode.name || "Export")}</title>
-  <link rel="stylesheet" href="./styles.css"/>
+  <link rel="stylesheet" href="./${cssFileName}"/>
   <style>
     html, body { height: 100%; margin: 0; }
     body { background:#f6f7f9; }
@@ -119,6 +119,7 @@ export function generateHtmlFromFrame(frameNode, imagesMap = {}) {
 </body>
 </html>`;
 }
+
 
 // Generates CSS for every node
 export function generateCssFromFrame(rootNode, imagesMap = {}) {
@@ -246,11 +247,11 @@ function shouldTreatAsSingleContainer(node) {
   const abb = node.absoluteBoundingBox;
   if (!abb) return false;
   const small = (abb.width <= 128 && abb.height <= 128);
-  const kind = new Set(["GROUP","COMPONENT","INSTANCE","COMPONENT_SET"]);
+  const kind = new Set(["GROUP", "COMPONENT", "INSTANCE", "COMPONENT_SET"]);
   if (!small || !kind.has(node.type)) return false;
 
   // If the group contains shapes or image fills, use it as a single image
-  const vectorish = new Set(["ELLIPSE","VECTOR","LINE","STAR","POLYGON","BOOLEAN_OPERATION","REGULAR_POLYGON","ARROW"]);
+  const vectorish = new Set(["ELLIPSE", "VECTOR", "LINE", "STAR", "POLYGON", "BOOLEAN_OPERATION", "REGULAR_POLYGON", "ARROW"]);
   const stack = [...(node.children || [])];
   while (stack.length) {
     const n = stack.pop();
